@@ -1,0 +1,34 @@
+int sensorPin = A0;
+
+int greenLED = 4;
+int yellowLED = 3;
+int redLED = 2;
+
+void setup() {
+  pinMode(greenLED, OUTPUT);
+  pinMode(yellowLED, OUTPUT);
+  pinMode(redLED, OUTPUT);
+}
+
+void loop() {
+
+  int value = analogRead(sensorPin);
+
+  if(value < 160) {
+    digitalWrite(greenLED, HIGH);
+    digitalWrite(yellowLED, LOW);
+    digitalWrite(redLED, LOW);
+  }
+  else if(value < 180) {
+    digitalWrite(greenLED, LOW);
+    digitalWrite(yellowLED, HIGH);
+    digitalWrite(redLED, LOW);
+  }
+  else {
+    digitalWrite(greenLED, LOW);
+    digitalWrite(yellowLED, LOW);
+    digitalWrite(redLED, HIGH);
+  }
+
+  delay(500);
+}
